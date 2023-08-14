@@ -6,7 +6,8 @@ on:
       - main
 
 env:
-  AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
+  # AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
+  AWS_ROLE_ARN: arn:aws:iam::445605964569:role/github-actions-role
   AWS_REGION: ap-northeast-1
 
 permissions:
