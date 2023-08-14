@@ -23,9 +23,9 @@ jobs:
       
     - name: Configure AWS Account
       uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-region: ${{ env.AWS_DEFAULT_REGION }}
-          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+      with:
+        aws-region: ${{ env.AWS_DEFAULT_REGION }}
+        role-to-assume: ${{ env.AWS_ROLE_ARN }}
     
     - name: Terraform Init
       run: terraform init
