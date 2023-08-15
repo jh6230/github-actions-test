@@ -1,4 +1,3 @@
 .terraform/
 .terraform.*
 .git
-terraform.tfstate.backup
