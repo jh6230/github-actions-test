@@ -1,3 +1,10 @@
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = "github-actions-test-2023-0815"
+  versioning {
+    enabled = true
+  }
+}
+
 terraform {
   required_version = ">= 1.5.0"
   backend "s3" {
@@ -10,13 +17,6 @@ terraform {
 
 provider "aws" {
   region = "ap-northeast-1"
-}
-
-resource "aws_s3_bucket" "terraform_state" {
-  bucket = "github-actions-test-2023-0815"
-  versioning {
-    enabled = true
-  }
 }
 
 resource "aws_vpc" "my_vpc" {
