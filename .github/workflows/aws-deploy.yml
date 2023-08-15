@@ -12,40 +12,43 @@ env:
 permissions:
   id-token: write
   contents: read
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        
+
       - name: Configure AWS Account
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: ${{ env.AWS_REGION }}
           role-to-assume: ${{ env.AWS_ROLE_ARN }}
-          
+
       - name: Set Up Terraform
         uses: hashicorp/setup-terraform@v1
-      
+
       - name: Terraform Init
         working-directory: ./
         run: terraform init
-        
+
       - name: Terraform Validate
         working-directory: ./
         run: terraform validate
-      
+
       - name: Terraform Fmt
         working-directory: ./
         run: terraform fmt
-      
+
       - name: Terraform Plan
         working-directory: ./
         run: terraform plan
-        
+
       - name: Terraform Apply
         working-directory: .
         run: terraform apply -auto-approve
+
+      # - name: Terraform Destroy
+      #   run: terraform destroy
