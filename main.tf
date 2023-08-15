@@ -1,12 +1,12 @@
-# terraform {
-#   required_version = ">= 1.5.0"
-#   backend "s3" {
-#     bucket = "example-terraform-state" # 作成したS3バケット
-#     region = "ap-northeast"
-#     key = "terraform.tfstate"
-#     encrypt = true
-#   }
-# }
+terraform {
+  required_version = ">= 1.5.0"
+  backend "s3" {
+    bucket = "github-actions-test-2023-0815" # 作成したS3バケット
+    region = "ap-northeast"
+    key = "terraform.tfstate"
+    encrypt = true
+  }
+}
 
 provider "aws" {
   region = "ap-northeast-1"
